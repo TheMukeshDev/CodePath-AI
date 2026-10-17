@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <!-- Left Code Bracket < -->
+  <polyline points="190,122 84,256 190,390" 
+            stroke="#FFFFFF" 
+            stroke-width="46" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- The Forward Path -->
+  <polyline points="182,390 270,270 365,142" 
+            stroke="#FFFFFF" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- Right Code Bracket > -->
+  <polyline points="334,390 428,278 382,216" 
+            stroke="#FFFFFF" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-opacity="0.8" />
+
+  <!-- Node 1: Discovery Anchor -->
+  <circle cx="182" cy="390" r="16" fill="#000000" stroke="#FFFFFF" stroke-width="10" />
+
+  <!-- Node 2: Intelligence Waypoint -->
+  <circle cx="270" cy="270" r="19" fill="#FFFFFF" stroke="#000000" stroke-width="6" />
+
+  <!-- Node 3: AI Destination Beacon -->
+  <circle cx="365" cy="142" r="42" stroke="#FFFFFF" stroke-width="3.5" stroke-dasharray="6 6" stroke-opacity="0.6" />
+  <circle cx="365" cy="142" r="26" fill="#FFFFFF" stroke="#000000" stroke-width="6" />
+  <circle cx="365" cy="142" r="10" fill="#000000" />
+</svg>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePath AI — Brand Identity & Design System</title>
+  <link rel="icon" type="image/svg+xml" href="codepath-icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #070B14;
+      --bg-surface: #0B1020;
+      --bg-card: #151D2E;
+      --bg-card-hover: #1E293B;
+      --border-subtle: #1E293B;
+      --border-accent: #334155;
+      --accent-blue: #41B4FF;
+      --accent-cyan: #38BDF8;
+      --accent-violet: #8B5CF6;
+      --accent-purple: #A855F7;
+      --text-primary: #FFFFFF;
+      --text-secondary: #A7B0C0;
+      --text-muted: #64748B;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 100px;
+    }
+
+    /* Hero Header */
+    header.hero {
+      text-align: center;
+      padding: 60px 0 50px;
+      position: relative;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(65, 180, 255, 0.1);
+      border: 1px solid rgba(65, 180, 255, 0.25);
+      color: var(--accent-blue);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #FFFFFF 40%, var(--accent-blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p.tagline {
+      font-size: 20px;
+      color: var(--accent-cyan);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .hero p.desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 50px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title span.number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .card-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .card-header span.tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .preview-box {
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: #060913;
+      border: 1px dashed var(--border-subtle);
+    }
+    .preview-box.light-preview {
+      background: #F8FAFC;
+      border-color: #E2E8F0;
+    }
+    .preview-box.transparent-checkered {
+      background-image: 
+        linear-gradient(45deg, #101726 25%, transparent 25%), 
+        linear-gradient(-45deg, #101726 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #101726 75%), 
+        linear-gradient(-45deg, transparent 75%, #101726 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+    .preview-box img {
+      max-width: 100%;
+      height: auto;
+      max-height: 140px;
+      object-fit: contain;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      border: none;
+    }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      color: #FFFFFF;
+    }
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #070B14;
+    }
+    .btn-primary:hover {
+      background: var(--accent-cyan);
+    }
+
+    /* Scale Tester */
+    .scale-tester {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 20px;
+    }
+    .scale-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      gap: 20px;
+      padding: 30px 10px;
+      background: #080D1A;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+    .scale-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .scale-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Color Swatches */
+    .swatch-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .swatch-card:hover { transform: translateY(-2px); }
+    .swatch-color {
+      height: 90px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: 14px 16px;
+    }
+    .swatch-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Symbol Anatomy */
+    .anatomy-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .anatomy-box { grid-template-columns: 1fr; }
+    }
+    .anatomy-points {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .anatomy-point {
+      display: flex;
+      gap: 14px;
+    }
+    .anatomy-point .icon-bullet {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(65, 180, 255, 0.1);
+      border: 1px solid rgba(65, 180, 255, 0.25);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .anatomy-point h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: #FFFFFF;
+    }
+    .anatomy-point p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="badge-pill">Project Brand Identity</div>
+      <h1>CodePath AI</h1>
+      <p class="tagline">Khojo Code. Samjho System. Contribute with Confidence.</p>
+      <p class="desc">Design System, Vector Logo Suite, Brand Guidelines & Production Assets for Team CodeYatra.</p>
+    </header>
+
+    <!-- Symbol Anatomy & Meaning -->
+    <h2 class="section-title"><span class="number">01</span> The Core Symbol Anatomy</h2>
+    <div class="anatomy-box">
+      <div style="text-align: center; background: #060913; border-radius: 14px; padding: 24px; border: 1px solid var(--border-subtle);">
+        <img src="codepath-icon.svg" alt="CodePath AI Symbol" style="width: 220px; height: 220px;">
+      </div>
+      <div class="anatomy-points">
+        <div class="anatomy-point">
+          <div class="icon-bullet">&lt;</div>
+          <div>
+            <h4>1. Khojo Code — The Code Bracket</h4>
+            <p>The angled left chevron represents discovering and opening unfamiliar source repositories. Bold, clean geometric linework grounded in developer tools.</p>
+          </div>
+        </div>
+        <div class="anatomy-point">
+          <div class="icon-bullet">/</div>
+          <div>
+            <h4>2. Samjho System — The Forward Path</h4>
+            <p>An ascending path transitioning through an intelligent AST waypoint node. Visualizes moving from codebase complexity to clear mental models.</p>
+          </div>
+        </div>
+        <div class="anatomy-point">
+          <div class="icon-bullet">&#9673;</div>
+          <div>
+            <h4>3. Contribute with Confidence — The AI Beacon</h4>
+            <p>A glowing electric-blue and violet beacon node with an orbital ring. Represents the destination: making a successful, confident pull request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scalability & Favicon Verification -->
+    <h2 class="section-title"><span class="number">02</span> Optical Legibility Across Scales</h2>
+    <div class="scale-tester">
+      <p style="color: var(--text-secondary); font-size: 14px;">The standalone icon maintains perfect geometric balance and high visual contrast across small and large viewports, from 16×16 favicon to 256×256 app shortcut:</p>
+      <div class="scale-row">
+        <div class="scale-item">
+          <img src="codepath-icon.svg" style="width: 16px; height: 16px;">
+          <span class="scale-label">16×16 Favicon</span>
+        </div>
+        <div class="scale-item">
+          <img src="codepath-icon.svg" style="width: 32px; height: 32px;">
+          <span class="scale-label">32×32 Tab</span>
+        </div>
+        <div class="scale-item">
+          <img src="codepath-icon.svg" style="width: 64px; height: 64px;">
+          <span class="scale-label">64×64 Nav</span>
+        </div>
+        <div class="scale-item">
+          <img src="codepath-icon.svg" style="width: 128px; height: 128px;">
+          <span class="scale-label">128×128 Avatar</span>
+        </div>
+        <div class="scale-item">
+          <img src="codepath-icon.svg" style="width: 180px; height: 180px;">
+          <span class="scale-label">256×256 App Icon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Horizontal Logos -->
+    <h2 class="section-title"><span class="number">03</span> Logo Variants (Horizontal Lockups)</h2>
+    <div class="grid-2">
+      <!-- Variant A: Primary Horizontal Logo -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Primary Horizontal Logo</h3>
+            <span style="font-size: 12px; color: var(--text-muted);">Transparent Background</span>
+          </div>
+          <span class="tag">SVG + PNG</span>
+        </div>
+        <div class="preview-box transparent-checkered">
+          <img src="codepath-logo.svg" alt="CodePath AI Primary Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-logo.png" download class="btn btn-secondary">Download PNG</a>
+        </div>
+      </div>
+
+      <!-- Variant B: Dark Background Logo -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Dark Container Logo</h3>
+            <span style="font-size: 12px; color: var(--text-muted);">Deep Navy (#0B1020) Badge</span>
+          </div>
+          <span class="tag">SVG + PNG</span>
+        </div>
+        <div class="preview-box">
+          <img src="codepath-logo-dark.svg" alt="CodePath AI Dark Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-dark.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-logo-dark.png" download class="btn btn-secondary">Download PNG</a>
+        </div>
+      </div>
+
+      <!-- Variant C: Light Background Logo -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Light Background Logo</h3>
+            <span style="font-size: 12px; color: var(--text-muted);">High Contrast for White / Docs</span>
+          </div>
+          <span class="tag">SVG + PNG</span>
+        </div>
+        <div class="preview-box light-preview">
+          <img src="codepath-logo-light.svg" alt="CodePath AI Light Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-light.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-logo-light.png" download class="btn btn-secondary">Download PNG</a>
+        </div>
+      </div>
+
+      <!-- Variant D: Full Logo with Tagline -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3>Full Presentation Logo</h3>
+            <span style="font-size: 12px; color: var(--text-muted);">Includes Official Tagline</span>
+          </div>
+          <span class="tag">SVG + PNG</span>
+        </div>
+        <div class="preview-box transparent-checkered">
+          <img src="codepath-logo-full.svg" alt="CodePath AI Full Logo with Tagline">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-full.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-logo-full.png" download class="btn btn-secondary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standalone & Compact Variants -->
+    <h2 class="section-title"><span class="number">04</span> Standalone Icons & Compact Formats</h2>
+    <div class="grid-3">
+      <!-- Standalone Icon -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Standalone Icon (1:1)</h3>
+          <span class="tag">512×512</span>
+        </div>
+        <div class="preview-box transparent-checkered">
+          <img src="codepath-icon.svg" style="height: 120px;" alt="Standalone Icon">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-icon.svg" download class="btn btn-primary">SVG</a>
+          <a href="codepath-icon.png" download class="btn btn-secondary">512 PNG</a>
+          <a href="codepath-icon-1024.png" download class="btn btn-secondary">1024 PNG</a>
+        </div>
+      </div>
+
+      <!-- Dark App Icon -->
+      <div class="card">
+        <div class="card-header">
+          <h3>App Icon / Avatar</h3>
+          <span class="tag">Social Preview</span>
+        </div>
+        <div class="preview-box">
+          <img src="codepath-icon-dark.svg" style="height: 120px;" alt="App Icon">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-icon-dark.svg" download class="btn btn-primary">SVG</a>
+          <a href="../favicon.ico" download class="btn btn-secondary">Favicon .ICO</a>
+        </div>
+      </div>
+
+      <!-- Compact Logo -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Compact Sidebar Logo</h3>
+          <span class="tag">Nav Lockup</span>
+        </div>
+        <div class="preview-box transparent-checkered">
+          <img src="codepath-logo-compact.svg" alt="Compact Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-compact.svg" download class="btn btn-primary">SVG</a>
+          <a href="codepath-logo-compact.png" download class="btn btn-secondary">PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monochrome & Print Variants -->
+    <h2 class="section-title"><span class="number">05</span> Monochrome & Print Variants</h2>
+    <div class="grid-2">
+      <!-- Mono White -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Monochrome White (1-Color)</h3>
+          <span class="tag">Dark Backgrounds / CLI</span>
+        </div>
+        <div class="preview-box" style="background: #000000;">
+          <img src="codepath-logo-mono-dark.svg" alt="Monochrome White Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-mono-dark.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-icon-mono-dark.svg" download class="btn btn-secondary">Icon SVG</a>
+        </div>
+      </div>
+
+      <!-- Mono Dark -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Monochrome Dark (1-Color)</h3>
+          <span class="tag">Print / Single Color</span>
+        </div>
+        <div class="preview-box light-preview">
+          <img src="codepath-logo-mono-light.svg" alt="Monochrome Dark Logo">
+        </div>
+        <div class="card-footer">
+          <a href="codepath-logo-mono-light.svg" download class="btn btn-primary">Download SVG</a>
+          <a href="codepath-icon-mono-light.svg" download class="btn btn-secondary">Icon SVG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color Palette -->
+    <h2 class="section-title"><span class="number">06</span> Color Palette Tokens</h2>
+    <div class="grid-4">
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #0B1020;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Navy</div>
+          <div class="swatch-hex"><span>Primary BG</span><span>#0B1020</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #151D2E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Slate</div>
+          <div class="swatch-hex"><span>Surface Card</span><span>#151D2E</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #41B4FF;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Electric Blue</div>
+          <div class="swatch-hex"><span>Primary Accent</span><span>#41B4FF</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #8B5CF6;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Violet AI</div>
+          <div class="swatch-hex"><span>AI Guidance</span><span>#8B5CF6</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #38BDF8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Sky Cyan</div>
+          <div class="swatch-hex"><span>Bracket Highlight</span><span>#38BDF8</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #FFFFFF;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pure White</div>
+          <div class="swatch-hex"><span>Heading / Spark</span><span>#FFFFFF</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #A7B0C0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Cool Gray</div>
+          <div class="swatch-hex"><span>Tagline Text</span><span>#A7B0C0</span></div>
+        </div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-color" style="background: #1E293B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Slate Border</div>
+          <div class="swatch-hex"><span>Borders & Lines</span><span>#1E293B</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

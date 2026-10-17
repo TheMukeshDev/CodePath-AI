@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# CodePath AI generated artifacts
+analyzer/.github_cache.json
+

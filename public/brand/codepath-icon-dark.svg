@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="bg_grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B1020"/>
+      <stop offset="100%" stop-color="#151D2E"/>
+    </linearGradient>
+    <linearGradient id="badge_bracket" x1="80" y1="120" x2="220" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#41B4FF"/>
+    </linearGradient>
+    <linearGradient id="badge_path" x1="160" y1="390" x2="380" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#41B4FF"/>
+      <stop offset="45%" stop-color="#60A5FA"/>
+      <stop offset="80%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <radialGradient id="badge_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#41B4FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="badge_beacon_disk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <filter id="badge_glow_filter" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Container Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bg_grad)"/>
+  <rect width="510" height="510" x="1" y="1" rx="111" stroke="#334155" stroke-width="2" stroke-opacity="0.35"/>
+
+  <!-- Left Code Bracket < -->
+  <polyline points="190,122 84,256 190,390" 
+            stroke="url(#badge_bracket)" 
+            stroke-width="46" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- The Forward Path -->
+  <polyline points="182,390 270,270 365,142" 
+            stroke="url(#badge_path)" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- Right Code Bracket > -->
+  <polyline points="334,390 428,278 382,216" 
+            stroke="#8B5CF6" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-opacity="0.85" />
+
+  <!-- Node 1: Discovery Anchor -->
+  <circle cx="182" cy="390" r="16" fill="#0B1020" stroke="#41B4FF" stroke-width="10" />
+
+  <!-- Node 2: Intelligence Waypoint -->
+  <circle cx="270" cy="270" r="19" fill="#41B4FF" stroke="#0B1020" stroke-width="6" />
+  <circle cx="270" cy="270" r="6" fill="#FFFFFF" />
+
+  <!-- Node 3: AI Destination Beacon -->
+  <circle cx="365" cy="142" r="50" fill="url(#badge_glow)" filter="url(#badge_glow_filter)" />
+  <circle cx="365" cy="142" r="42" stroke="#8B5CF6" stroke-width="3.5" stroke-dasharray="6 6" stroke-opacity="0.65" />
+  <circle cx="365" cy="142" r="26" fill="url(#badge_beacon_disk)" stroke="#FFFFFF" stroke-width="7" />
+  <circle cx="365" cy="142" r="10" fill="#FFFFFF" />
+</svg>

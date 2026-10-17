@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="light_bracket" x1="80" y1="120" x2="220" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <linearGradient id="light_path" x1="160" y1="390" x2="380" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="light_beacon_disk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Code Bracket < -->
+  <polyline points="190,122 84,256 190,390" 
+            stroke="url(#light_bracket)" 
+            stroke-width="46" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- The Forward Path -->
+  <polyline points="182,390 270,270 365,142" 
+            stroke="url(#light_path)" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" />
+
+  <!-- Right Code Bracket > -->
+  <polyline points="334,390 428,278 382,216" 
+            stroke="#7C3AED" 
+            stroke-width="42" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-opacity="0.85" />
+
+  <!-- Node 1: Discovery Anchor -->
+  <circle cx="182" cy="390" r="16" fill="#FFFFFF" stroke="#0284C7" stroke-width="10" />
+
+  <!-- Node 2: Intelligence Waypoint -->
+  <circle cx="270" cy="270" r="19" fill="#0284C7" stroke="#FFFFFF" stroke-width="6" />
+  <circle cx="270" cy="270" r="6" fill="#FFFFFF" />
+
+  <!-- Node 3: AI Destination Beacon -->
+  <circle cx="365" cy="142" r="42" stroke="#7C3AED" stroke-width="3.5" stroke-dasharray="6 6" stroke-opacity="0.5" />
+  <circle cx="365" cy="142" r="26" fill="url(#light_beacon_disk)" stroke="#FFFFFF" stroke-width="7" />
+  <circle cx="365" cy="142" r="10" fill="#FFFFFF" />
+</svg>

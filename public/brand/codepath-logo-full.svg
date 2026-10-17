@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 210" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="fl_bracket" x1="20" y1="30" x2="60" y2="130" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#41B4FF"/>
+    </linearGradient>
+    <linearGradient id="fl_path" x1="40" y1="125" x2="110" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#41B4FF"/>
+      <stop offset="50%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="fl_beacon_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#41B4FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl_beacon_disk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <filter id="fl_glow_filter" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Left Icon Lockup -->
+  <g transform="translate(18, 18) scale(0.28)">
+    <polyline points="190,122 84,256 190,390" 
+              stroke="url(#fl_bracket)" 
+              stroke-width="46" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" />
+    <polyline points="182,390 270,270 365,142" 
+              stroke="url(#fl_path)" 
+              stroke-width="42" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" />
+    <polyline points="334,390 428,278 382,216" 
+              stroke="#8B5CF6" 
+              stroke-width="42" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-opacity="0.85" />
+    <circle cx="182" cy="390" r="16" fill="#0B1020" stroke="#41B4FF" stroke-width="10" />
+    <circle cx="270" cy="270" r="19" fill="#41B4FF" stroke="#0B1020" stroke-width="6" />
+    <circle cx="270" cy="270" r="6" fill="#FFFFFF" />
+    <circle cx="365" cy="142" r="50" fill="url(#fl_beacon_glow)" filter="url(#fl_glow_filter)" />
+    <circle cx="365" cy="142" r="42" stroke="#8B5CF6" stroke-width="3.5" stroke-dasharray="6 6" stroke-opacity="0.65" />
+    <circle cx="365" cy="142" r="26" fill="url(#fl_beacon_disk)" stroke="#FFFFFF" stroke-width="7" />
+    <circle cx="365" cy="142" r="10" fill="#FFFFFF" />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="180" y="100" 
+        font-family="system-ui, -apple-system, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif" 
+        font-size="64" 
+        font-weight="700" 
+        letter-spacing="-0.03em" 
+        fill="#FFFFFF">CodePath</text>
+  <text x="488" y="100" 
+        font-family="system-ui, -apple-system, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif" 
+        font-size="64" 
+        font-weight="800" 
+        letter-spacing="-0.02em" 
+        fill="#41B4FF">AI</text>
+
+  <!-- Tagline -->
+  <text x="182" y="148" 
+        font-family="system-ui, -apple-system, 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif" 
+        font-size="20" 
+        font-weight="500" 
+        letter-spacing="0.01em" 
+        fill="#A7B0C0">Khojo Code. Samjho System. Contribute with Confidence.</text>
+</svg>
